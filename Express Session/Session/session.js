@@ -1,6 +1,6 @@
-var express = require('express')
-var parseurl = require('parseurl')
-var session = require('express-session')
+var express = require('express');
+var parseurl = require('parseurl');
+var session = require('express-session');
 var FileStore = require('session-file-store')(session);
  
 var app = express()

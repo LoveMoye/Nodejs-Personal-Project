@@ -1,7 +1,30 @@
 const fs = require('fs');
 
 const content = {
-  HTML: (list, control,body) => {
+  HTML: (authStatusUI, list, control,body) => {
+    return `
+    <html lang="kr">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CatInfo</title>
+      </head>
+      <body>
+        <h1>Welcome!</h1>
+        ${authStatusUI}
+        <header>
+          <h1>
+            <a href = "/">hahaha의 고양이들</a>
+          </h1>
+        </header>
+        ${list}
+        ${control}
+        ${body}
+      </body>
+    </html>`
+  },
+
+  Login: (control) => {
     return `
     <html lang="kr">
       <head>
@@ -17,9 +40,7 @@ const content = {
             <a href = "/">hahaha의 고양이들</a>
           </h1>
         </header>
-        ${list}
         ${control}
-        ${body}
       </body>
     </html>`
   },
@@ -102,7 +123,7 @@ const content = {
   loginPage: () => {
     return `
     <div>
-      <h2 style="font-size: 40px">로그인</h2>
+      <h2 style="font-size: 40px">Login</h2>
       <form action="/auth/process_login" method="post"> 
         <p>
           <input type = "text" name = "email" placeholder="email">
